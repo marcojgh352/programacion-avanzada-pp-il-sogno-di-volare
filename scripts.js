@@ -32,7 +32,7 @@ const militaryHelicopter = [
 
 //=================//
 
-let randomImg = Math.floor(Math.random() * 5);
+
 
 class Gallery {
   constructor(civilImages, militaryImages) {
@@ -41,11 +41,11 @@ class Gallery {
   }
 
   getRandomCivil() {
-    return this.civilImages[randomImg];
+    return this.civilImages[Math.floor(Math.random() * 5)];
   }
 
   getRandomMilitary() {
-    return this.militaryImages[randomImg];
+    return this.militaryImages[Math.floor(Math.random() * 5)];
   }
 
   getAll() {
@@ -71,6 +71,7 @@ class Painter {
   }
 
   paintSingleImage(imageUrl) {
+    
     this.gallery.innerHTML = this.createImageTag(imageUrl);
   }
 
@@ -92,5 +93,6 @@ class Painter {
 const aircrafts = new Gallery(civilAircrafts, militaryAircrafts);
 const helicopters = new Gallery(civilHelicopters, militaryHelicopter);
 const painter = new Painter();
+console.log(aircrafts.getAll());
 
-
+painter.createGallery();
